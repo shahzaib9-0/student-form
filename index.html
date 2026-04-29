@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+
+    <style>
+        body {
+            background-color: azure;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .form {
+            background-color: black;
+            color: white;
+            padding: 20px;
+            width: 300px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #00aaff;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #008ecc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form class="form">
+        <h2>Student Form</h2>
+
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Write your name">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Write your email">
+
+        <label for="course">Course</label>
+        <select id="course">
+            <option value="">Select the course</option>
+            <option value="cs">Computer Science (CS)</option>
+            <option value="it">Information Technology (IT)</option>
+        </select>
+
+        <button id="btn">Submit</button>
+    </form>
+
+    <script>
+        const button = document.getElementById('btn');
+
+        button.addEventListener("click", function (event) {
+            event.preventDefault(); // stop reload
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const course = document.getElementById('course').value; // ✔️ fixed
+
+            if (name === "" || email === "" || course === "") {
+                alert("Please fill the form");
+            } else {
+                alert("Form is submitted successfully!");
+            }
+        });
+    </script>
+
+</body>
+</html>
